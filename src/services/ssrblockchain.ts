@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import contractAbi from "../artifacts/contracts/DappLottery.sol/DappLottery.json";
 import { fromWei } from "./blockchain";
 
-let tx, ethereum: any;
+let ethereum: any;
 
 if (typeof window !== "undefined") {
   ethereum = window.ethereum;

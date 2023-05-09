@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast";
 import { BigNumberish, ethers } from "ethers";
-import contractAbi from "../artifacts/contracts/DappLottery.sol/DappLottery.json";
+import contractAbi from '../artifacts/contracts/DappLottery.sol/DappLottery.json'
 import { setWallet } from "../store/storeSlices";
 import { store } from "../store";
 import { createJackpotProps } from "../typings";

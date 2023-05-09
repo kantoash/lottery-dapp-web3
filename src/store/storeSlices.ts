@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { Lottery } from "../typings"
 
 // Define a type for the slice state
 interface CounterState {
