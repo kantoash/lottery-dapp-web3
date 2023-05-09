@@ -1,11 +1,9 @@
 import { toast } from "react-hot-toast";
 import { BigNumberish, ethers } from "ethers";
-import contractAbi from '../artifacts/contracts/DappLottery.sol/DappLottery.json'
+import { Abi, Address } from './contract'
 import { setWallet } from "../store/storeSlices";
 import { store } from "../store";
 import { createJackpotProps } from "../typings";
-
-const contractAddress = "0xDbEfa52EFe0676Bf25527c0f1EA806a0a90d86eb";
 
 export const toWei = (num: string) => ethers.utils.parseEther(num);
 export const fromWei = (num: BigNumberish) => ethers.utils.formatEther(num);
@@ -25,8 +23,8 @@ const EthereumContract = async () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
   const signer = provider.getSigner();
   const Contract = new ethers.Contract(
-    contractAddress,
-    contractAbi.abi,
+    Address,
+    Abi.abi,
     signer
   );
   return Contract;

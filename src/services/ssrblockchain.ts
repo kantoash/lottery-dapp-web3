@@ -1,6 +1,6 @@
-const contractAddress = "0xDbEfa52EFe0676Bf25527c0f1EA806a0a90d86eb";
+import { Abi, Address } from './contract'
 import { ethers } from "ethers";
-import contractAbi from "../artifacts/contracts/DappLottery.sol/DappLottery.json";
+
 import { fromWei } from "./blockchain";
 
 let ethereum: any;
@@ -14,8 +14,8 @@ export const EthereumContract = async () => {
   const wallet = ethers.Wallet.createRandom();
   const signer = provider.getSigner(wallet.address);
   const Contract = new ethers.Contract(
-    contractAddress,
-    contractAbi.abi,
+    Address,
+    Abi.abi,
     signer
   );
   return Contract;
