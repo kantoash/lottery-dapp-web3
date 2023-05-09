@@ -8,14 +8,12 @@ import { truncate } from '../services/blockchain';
 import DrawResult from './modal/DrawResult';
 
 interface ResultProps {
-    id?: string;
   lottery?: Lottery;
   participants?: Participant[];
   result?: LotteryResult;
 }
 
 const Result: React.FC<ResultProps> = ({
-    id,
     lottery,
     participants,
     result

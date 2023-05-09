@@ -29,7 +29,7 @@ const ResultPage = () => {
   return (
     <div>
         <SubHeader />
-        <Result id={id} lottery={lottery} participants={participants} result={result} />
+        <Result lottery={lottery} participants={participants} result={result} />
     </div>
   )
 }
