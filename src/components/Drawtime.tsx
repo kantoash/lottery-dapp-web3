@@ -7,6 +7,7 @@ import GenerateLuckyNumber from "./modal/GenerateLuckyNumber";
 import { buyTicket } from "../services/blockchain";
 import { toast } from "react-hot-toast";
 import { FaEthereum } from 'react-icons/fa'
+import { useNavigate } from "react-router";
 
 interface DrawtimeProps {
   id?: string;
@@ -22,7 +23,7 @@ const Drawtime: React.FC<DrawtimeProps> = ({
   purchasedNumbers
 }) => {
   const { wallet } = useSelector((state: RootState) => state.counter);
-  
+  const navigate = useNavigate();
   const ticketPurchase = async (luckyNumberId: number, ticketPrice: string) => {
     if (!id) {
       return;
@@ -73,12 +74,12 @@ const Drawtime: React.FC<DrawtimeProps> = ({
         <div className="flex justify-center items-center space-x-2">
           {wallet?.toLowerCase() == lottery?.owner.toLocaleLowerCase() &&
             Date.now() < lottery?.expiresAt && <GenerateLuckyNumber />}
-          <a
-            href={`/results/${lottery.id}/${lottery.title}`}
+          <div
+            onClick={()=>navigate(`/results/${lottery.id}/`)}            
             className="flex flex-nowrap border py-2 px-4 rounded-full bg-[#0c2856] hover:bg-[#1a396c] cursor-pointe font-semibold text-white"
           >
             Draw Result
-          </a>
+          </div>
         </div>
       </div>
       <div className="mt-10 bg-white text-sm overflow-x-auto flex flex-col w-full sm:w-3/4 mx-auto p-5 rounded-md">

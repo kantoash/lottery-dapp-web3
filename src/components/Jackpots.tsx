@@ -24,7 +24,7 @@ const Jackpots: React.FC<JackpotsProps> = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-items-center gap-6 py-10 w-4/5 mx-auto ">
         
-        {lotteries && lotteries.map((lottery: Lottery) => (
+        {lotteries && lotteries?.map((lottery: Lottery) => (
         <LotteryCard lottery={lottery} key={lottery?.id} />
       ))}
       </div>

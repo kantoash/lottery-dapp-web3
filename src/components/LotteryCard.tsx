@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { truncate } from "../services/blockchain";
 import { Lottery } from "../typings";
 
@@ -6,6 +7,7 @@ interface LotteryCardProps {
 }
 
 const LotteryCard: React.FC<LotteryCardProps> = ({ lottery }) => {
+  const navigate = useNavigate();
   return (
     <div className="card">
       <div className="w-full h-full flex flex-col justify-between cursor-pointer ">
@@ -27,13 +29,13 @@ const LotteryCard: React.FC<LotteryCardProps> = ({ lottery }) => {
             {truncate(lottery?.description, 90, 3, 0)}
           </p>
         </div>
-        <a
-          href={`/jackpots/${lottery.id}/${lottery.title}`}
+        <div
+        onClick={()=>navigate(`/jackpots/${lottery.id}/`)}
           className="bg-green-500 hover:bg-opacity-75 py-2 px-5
               rounded-md text-white font-semibold"
         >
           PLAY NOW
-        </a>
+        </div>
       </div>{" "}
     </div>
   );

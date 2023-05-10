@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { truncate } from '../services/blockchain';
 import DrawResult from './modal/DrawResult';
+import { useNavigate } from 'react-router';
 
 interface ResultProps {
   lottery?: Lottery;
@@ -19,7 +20,7 @@ const Result: React.FC<ResultProps> = ({
     result
 }) => {
     const { wallet } = useSelector((state: RootState) => state.counter)
-    
+    const navigate = useNavigate();
   return (
     <div className="mx-auto py-16 bg-slate-100 space-y-3">
     <div className="flex flex-col items-center justify-center text-center py-10">
@@ -48,13 +49,13 @@ const Result: React.FC<ResultProps> = ({
           <DrawResult/>
         )}
 
-        <a
-          href={`/jackpots/${lottery?.id}/${lottery?.title}`}
+        <div
+          onClick={()=>navigate(`/jackpots/${lottery?.id}/`)}
           className="flex flex-nowrap border py-2 px-4 rounded-full bg-[#0c2856]
           hover:bg-[#1a396c] cursor-pointer font-semibold text-white"
         >
           Jackpot
-        </a>
+        </div>
       </div>
     </div>
 

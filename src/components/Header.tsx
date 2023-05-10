@@ -6,16 +6,18 @@ import {
   truncate,
 } from "../services/blockchain";
 import { RootState } from "../store";
+import { useNavigate } from 'react-router';
 
 const Header = () => {
   const { wallet } = useSelector((state: RootState) => state.counter);
+  const navigate = useNavigate();
   return (
     <div
       className="px-5 md:px-20"
       style={{ background: `url('${background}') fixed no-repeat top/cover` }}
     >
       <div className="flex items-center justify-between text-white py-5">
-        <a href={'/'}>
+        <a onClick={()=>navigate('/')}>
           <h1 className="text-xl font-bold cursor-pointer">DappLottery</h1>
         </a>
 
@@ -61,13 +63,13 @@ const Header = () => {
       </div>
 
       <div className="pb-10">
-        <a
-          href={"/create"}
+        <div
+          onClick={()=>navigate('/create')}
           className="bg-amber-500 hover:bg-rose-600 text-white rounded-md
         cursor-pointer font-semibold py-3 px-5"
         >
           Create Jackpot
-        </a>
+        </div>
       </div>
     </div>
   );
