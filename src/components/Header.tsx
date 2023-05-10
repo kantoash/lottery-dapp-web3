@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router';
 const Header = () => {
   const { wallet } = useSelector((state: RootState) => state.counter);
   const navigate = useNavigate();
+  
   return (
     <div
       className="px-5 md:px-20"

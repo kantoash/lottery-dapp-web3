@@ -1,6 +1,5 @@
 import { Abi, Address } from './contract'
 import { ethers } from "ethers";
-
 import { fromWei } from "./blockchain";
 
 let ethereum: any;
@@ -10,7 +9,7 @@ if (typeof window !== "undefined") {
 }
 
 export const EthereumContract = async () => {
-  const provider = new ethers.providers.JsonRpcProvider(process.env.DOMAIN_URL)
+  const provider = new ethers.providers.Web3Provider(ethereum);
   const wallet = ethers.Wallet.createRandom();
   const signer = provider.getSigner(wallet.address);
   const Contract = new ethers.Contract(

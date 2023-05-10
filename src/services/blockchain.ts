@@ -36,6 +36,7 @@ export const walletConnect = async () => {
       toast("please install metamask");
     }
     const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    window.location.reload()
     store.dispatch(setWallet(accounts[0]));
   } catch (error) {
     reportError(error)
