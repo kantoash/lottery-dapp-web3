@@ -16,8 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/create/' element={<CreatePage/>} />
-        <Route path="/jackpots/:id/:title" element={<LotteryPage />} />
-        <Route path='/results/:id/:title' element={<ResultPage/>}/>
+        <Route path="/jackpots/:id/" element={<LotteryPage />} />
+        <Route path='/results/:id/' element={<ResultPage/>}/>
       </Routes>
     </BrowserRouter>
   );
