@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 }
 
 export const EthereumContract = async () => {
-  const provider = new ethers.providers.Web3Provider(ethereum);
+  const provider = new ethers.providers.JsonRpcProvider(process.env.DOMAIN_URL)
   const wallet = ethers.Wallet.createRandom();
   const signer = provider.getSigner(wallet.address);
   const Contract = new ethers.Contract(
